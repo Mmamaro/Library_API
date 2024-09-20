@@ -1,3 +1,5 @@
+using Library_API.Data;
+using Library_API.Repositories;
 using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,6 +14,10 @@ builder.Services.AddSwaggerGen();
 //Registering Serilog
 builder.Host.UseSerilog((context, configuration) =>
 configuration.ReadFrom.Configuration(context.Configuration));
+
+//Registering my services
+builder.Services.AddSingleton<IGenre, GenreRepo>();
+builder.Services.AddSingleton<DapperContext>();
 
 var app = builder.Build();
 

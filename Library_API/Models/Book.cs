@@ -6,5 +6,6 @@
         public string Title { get; set; }
         public string ISBN { get; set; }
         public string GenreName { get; set; }
+        public int Quantity { get; set; }
     }
 }
