@@ -19,6 +19,7 @@ configuration.ReadFrom.Configuration(context.Configuration));
 builder.Services.AddSingleton<DapperContext>();
 builder.Services.AddSingleton<IGenre, GenreRepo>();
 builder.Services.AddSingleton<IBook, BookRepo>();
+builder.Services.AddSingleton<IBookCopy, BookCopyRepo>();
 
 
 var app = builder.Build();

@@ -4,7 +4,14 @@
     {
         public int CopyId { get; set; }
         public int BookId { get; set; }
-        public int BarCode { get; set; }
-        public int Status { get; set; }
+        public string BarCode { get; set; }
+        public string Status { get; set; }
+    }
+
+    public class AddBookCopy
+    {
+        public int BookId { get; set; }
+        public string? BarCode { get; set; }
+        public string? Status { get; set; }
     }
 }
