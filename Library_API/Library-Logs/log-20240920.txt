@@ -50,3 +50,52 @@ System.InvalidOperationException: Unable to resolve service for type 'Library_AP
 2024-09-20 10:14:34.643 +02:00 [INF] HTTP DELETE /api/genres/4 responded 200 in 6.1757 ms
 2024-09-20 10:14:40.985 +02:00 [INF] HTTP GET /api/genres responded 200 in 0.9831 ms
 2024-09-20 10:15:46.472 +02:00 [INF] HTTP GET /api/genres responded 200 in 366.8704 ms
+2024-09-20 11:46:55.686 +02:00 [INF] HTTP GET /api/genres responded 200 in 378.8968 ms
+2024-09-20 11:49:34.889 +02:00 [INF] HTTP POST /api/books responded 200 in 78.1207 ms
+2024-09-20 11:50:12.211 +02:00 [INF] HTTP POST /api/books responded 200 in 9.1922 ms
+2024-09-20 11:50:42.404 +02:00 [ERR] Error in the dapper context while etrying to execute sql: Violation of UNIQUE KEY constraint 'UQ__Books__447D36EAAF2DDCBB'. Cannot insert duplicate key in object 'dbo.Books'. The duplicate key value is (B2).
+The statement has been terminated.
+2024-09-20 11:50:42.407 +02:00 [INF] HTTP POST /api/books responded 400 in 69.5127 ms
+2024-09-20 11:56:58.231 +02:00 [INF] HTTP GET /api/books responded 200 in 16.1779 ms
+2024-09-20 12:10:50.723 +02:00 [INF] HTTP GET /api/genres responded 200 in 385.5769 ms
+2024-09-20 12:11:26.501 +02:00 [ERR] Error in the dapper context while etrying to execute sql: The INSERT statement conflicted with the FOREIGN KEY constraint "FK_Books_GenreId". The conflict occurred in database "LibraryDb", table "dbo.Genres", column 'GenreId'.
+The statement has been terminated.
+2024-09-20 12:11:26.505 +02:00 [INF] HTTP POST /api/books responded 400 in 130.3915 ms
+2024-09-20 12:12:18.091 +02:00 [INF] HTTP POST /api/books responded 200 in 11.0034 ms
+2024-09-20 12:15:40.330 +02:00 [INF] HTTP POST /api/books responded 400 in 413.8584 ms
+2024-09-20 12:15:47.896 +02:00 [INF] HTTP POST /api/books responded 400 in 20.0056 ms
+2024-09-20 12:15:54.681 +02:00 [INF] HTTP POST /api/books responded 200 in 26.1159 ms
+2024-09-20 12:16:00.995 +02:00 [INF] HTTP GET /api/books responded 200 in 13.6927 ms
+2024-09-20 12:16:24.508 +02:00 [INF] HTTP GET /api/genres responded 200 in 9.3734 ms
+2024-09-20 12:17:12.733 +02:00 [INF] HTTP POST /api/books responded 200 in 21.6240 ms
+2024-09-20 12:17:31.327 +02:00 [INF] HTTP POST /api/books responded 200 in 4.2142 ms
+2024-09-20 12:17:39.361 +02:00 [INF] HTTP GET /api/books responded 200 in 1.8181 ms
+2024-09-20 12:18:07.583 +02:00 [INF] HTTP POST /api/books responded 200 in 32.0871 ms
+2024-09-20 12:18:39.861 +02:00 [INF] HTTP GET /api/books responded 200 in 5.3932 ms
+2024-09-20 12:19:13.507 +02:00 [INF] HTTP GET /api/books/get-bookbyid/4 responded 404 in 36.0275 ms
+2024-09-20 12:19:18.874 +02:00 [INF] HTTP GET /api/books/get-bookbyid/2 responded 200 in 1.5054 ms
+2024-09-20 12:19:35.610 +02:00 [INF] HTTP GET /api/books/get-bookbyid/9 responded 200 in 1.1503 ms
+2024-09-20 12:19:47.981 +02:00 [ERR] Error in the dapper context while trying to query data with parameters: Must declare the scalar variable "@IdPaaram".
+2024-09-20 12:19:47.983 +02:00 [INF] HTTP GET /api/books/get-booksbygenreid/1 responded 404 in 58.6218 ms
+2024-09-20 12:20:00.240 +02:00 [ERR] Error in the dapper context while trying to query data with parameters: Must declare the scalar variable "@IdPaaram".
+2024-09-20 12:20:00.242 +02:00 [INF] HTTP GET /api/books/get-booksbygenreid/3 responded 404 in 24.2399 ms
+2024-09-20 12:21:09.364 +02:00 [INF] HTTP GET /api/books/get-booksbygenreid/3 responded 200 in 415.0469 ms
+2024-09-20 12:21:17.544 +02:00 [INF] HTTP GET /api/books/get-booksbygenreid/2 responded 200 in 9.9626 ms
+2024-09-20 12:21:30.820 +02:00 [INF] HTTP GET /api/books/get-bookbyid/9 responded 200 in 16.0937 ms
+2024-09-20 12:22:31.126 +02:00 [ERR] Error in the dapper context while etrying to execute sql: Must declare the scalar variable "@IdParaam".
+2024-09-20 12:22:31.130 +02:00 [INF] HTTP PUT /api/books/9 responded 400 in 82.9801 ms
+2024-09-20 12:23:05.886 +02:00 [ERR] Error in the dapper context while etrying to execute sql: Must declare the scalar variable "@IdParaam".
+2024-09-20 12:23:05.888 +02:00 [INF] HTTP PUT /api/books/9 responded 400 in 29.4074 ms
+2024-09-20 12:24:54.271 +02:00 [INF] HTTP PUT /api/books/100 responded 404 in 435.9400 ms
+2024-09-20 12:25:01.882 +02:00 [INF] HTTP PUT /api/books/9 responded 200 in 32.7157 ms
+2024-09-20 12:25:14.683 +02:00 [INF] HTTP GET /api/books/get-bookbyid/9 responded 200 in 6.8157 ms
+2024-09-20 12:25:37.576 +02:00 [INF] HTTP PUT /api/books/9 responded 400 in 11.1393 ms
+2024-09-20 12:25:49.107 +02:00 [INF] HTTP PUT /api/books/9 responded 400 in 15.6178 ms
+2024-09-20 12:26:06.048 +02:00 [INF] HTTP PUT /api/books/9 responded 200 in 16.7949 ms
+2024-09-20 12:26:19.712 +02:00 [INF] HTTP GET /api/books/get-bookbyid/9 responded 200 in 1.1526 ms
+2024-09-20 12:26:36.825 +02:00 [INF] HTTP PUT /api/books/9 responded 200 in 5.9601 ms
+2024-09-20 12:26:42.615 +02:00 [INF] HTTP GET /api/books/get-bookbyid/9 responded 200 in 1.2860 ms
+2024-09-20 12:27:00.674 +02:00 [INF] HTTP DELETE /api/books/1000 responded 404 in 13.6157 ms
+2024-09-20 12:27:05.469 +02:00 [INF] HTTP DELETE /api/books/9 responded 200 in 12.8398 ms
+2024-09-20 12:27:10.708 +02:00 [INF] HTTP GET /api/books/get-bookbyid/9 responded 404 in 1.1111 ms
+2024-09-20 12:27:18.635 +02:00 [INF] HTTP GET /api/books responded 200 in 9.2670 ms
