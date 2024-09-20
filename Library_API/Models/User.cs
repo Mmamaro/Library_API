@@ -15,5 +15,22 @@ namespace Library_API.Models
         public string? twoFaKey { get; set; }
         public string? QRCode { get; set; }
         public string? ManualCode { get; set; }
+        public bool Active { get; set; }
     }
+
+    public class AddUser
+    {
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        [EmailAddress] public string Email { get; set; }
+        public string Password { get; set; }
+    }
+
+    public class UpdateUser
+    {
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        [EmailAddress] public string Email { get; set; }
+    }
+
 }
