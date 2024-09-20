@@ -171,3 +171,84 @@ The statement has been terminated.
 2024-09-20 20:17:21.076 +02:00 [INF] HTTP GET /api/books responded 200 in 6.6866 ms
 2024-09-20 20:17:30.992 +02:00 [INF] HTTP GET /api/bookcopies responded 200 in 16.7508 ms
 2024-09-20 20:17:53.846 +02:00 [INF] HTTP GET /api/bookcopies/get-copiesbybookid/8 responded 200 in 8.4547 ms
+2024-09-20 22:27:26.501 +02:00 [ERR] HTTP GET /api/customers responded 500 in 21.4922 ms
+System.InvalidOperationException: Unable to resolve service for type 'Library_API.Repositories.ICustomer' while attempting to activate 'Library_API.Controllers.CustomerController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.ThrowHelperUnableToResolveService(Type type, Type requiredBy)
+   at lambda_method3(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2024-09-20 22:27:26.584 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'Library_API.Repositories.ICustomer' while attempting to activate 'Library_API.Controllers.CustomerController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.ThrowHelperUnableToResolveService(Type type, Type requiredBy)
+   at lambda_method3(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-09-20 22:28:51.946 +02:00 [INF] HTTP GET /api/customers responded 200 in 385.7342 ms
+2024-09-20 22:30:30.557 +02:00 [INF] HTTP POST /api/customers responded 400 in 48.6755 ms
+2024-09-20 22:30:43.268 +02:00 [ERR] Error in the dapper context while trying to query single row: Invalid column name 'EmailParam'.
+2024-09-20 22:30:43.304 +02:00 [ERR] Error in the dapper context while etrying to execute sql: String or binary data would be truncated in table 'LibraryDb.dbo.Customers', column 'IdNumber'. Truncated value: '1234567891012'.
+The statement has been terminated.
+2024-09-20 22:30:43.307 +02:00 [INF] HTTP POST /api/customers responded 400 in 122.4664 ms
+2024-09-20 22:36:23.110 +02:00 [ERR] Error in the dapper context while trying to query single row: Invalid column name 'EmailParam'.
+2024-09-20 22:36:23.165 +02:00 [INF] HTTP POST /api/customers responded 200 in 510.1481 ms
+2024-09-20 22:37:08.138 +02:00 [ERR] Error in the dapper context while trying to query single row: Invalid column name 'EmailParam'.
+2024-09-20 22:37:08.172 +02:00 [ERR] Error in the dapper context while etrying to execute sql: Violation of UNIQUE KEY constraint 'UQ__Customer__5C7E359EE7434C4D'. Cannot insert duplicate key in object 'dbo.Customers'. The duplicate key value is (0815673460).
+The statement has been terminated.
+2024-09-20 22:37:08.175 +02:00 [INF] HTTP POST /api/customers responded 400 in 67.0874 ms
+2024-09-20 22:37:55.614 +02:00 [ERR] Error in the dapper context while trying to query single row: Invalid column name 'EmailParam'.
+2024-09-20 22:37:55.639 +02:00 [ERR] Error in the dapper context while etrying to execute sql: Violation of UNIQUE KEY constraint 'UQ__Customer__A9D10534526861B6'. Cannot insert duplicate key in object 'dbo.Customers'. The duplicate key value is (mike@gmaail.com).
+The statement has been terminated.
+2024-09-20 22:37:55.642 +02:00 [INF] HTTP POST /api/customers responded 400 in 56.1105 ms
+2024-09-20 22:40:50.288 +02:00 [INF] HTTP POST /api/customers responded 400 in 421.6603 ms
+2024-09-20 22:41:29.017 +02:00 [INF] HTTP POST /api/customers responded 400 in 17.4909 ms
+2024-09-20 22:41:36.834 +02:00 [INF] HTTP POST /api/customers responded 200 in 10.4880 ms
+2024-09-20 22:42:23.321 +02:00 [INF] HTTP POST /api/customers responded 400 in 14.2486 ms
+2024-09-20 22:42:51.897 +02:00 [INF] HTTP POST /api/customers responded 400 in 17.3189 ms
+2024-09-20 22:43:08.427 +02:00 [INF] HTTP POST /api/customers responded 400 in 2.4133 ms
+2024-09-20 22:43:18.646 +02:00 [INF] HTTP POST /api/customers responded 200 in 6.2149 ms
+2024-09-20 22:43:47.354 +02:00 [INF] HTTP POST /api/customers responded 200 in 19.9394 ms
+2024-09-20 22:43:58.493 +02:00 [INF] HTTP GET /api/customers/7 responded 200 in 12.7588 ms
+2024-09-20 22:44:31.797 +02:00 [INF] HTTP PUT /api/customers/7 responded 400 in 25.6995 ms
+2024-09-20 22:45:35.886 +02:00 [ERR] Error in the dapper context while trying to query single row: Invalid column name 'EmailParam'.
+2024-09-20 22:45:35.965 +02:00 [INF] HTTP PUT /api/customers/7 responded 200 in 547.1896 ms
+2024-09-20 22:45:45.998 +02:00 [INF] HTTP GET /api/customers/7 responded 200 in 25.6431 ms
+2024-09-20 22:46:09.678 +02:00 [ERR] Error in the dapper context while trying to query single row: Invalid column name 'EmailParam'.
+2024-09-20 22:46:09.693 +02:00 [INF] HTTP PUT /api/customers/7 responded 200 in 47.6225 ms
+2024-09-20 22:46:14.067 +02:00 [INF] HTTP GET /api/customers/7 responded 200 in 1.4798 ms
+2024-09-20 22:46:55.584 +02:00 [ERR] Error in the dapper context while trying to query single row: Invalid column name 'EmailParam'.
+2024-09-20 22:46:55.602 +02:00 [INF] HTTP PUT /api/customers/7 responded 200 in 46.8215 ms
+2024-09-20 22:47:04.049 +02:00 [INF] HTTP GET /api/customers/7 responded 200 in 1.2819 ms
+2024-09-20 22:47:21.806 +02:00 [ERR] Error in the dapper context while trying to query single row: Invalid column name 'EmailParam'.
+2024-09-20 22:47:21.812 +02:00 [INF] HTTP PUT /api/customers/7 responded 200 in 32.8917 ms
+2024-09-20 22:47:25.256 +02:00 [INF] HTTP GET /api/customers/7 responded 200 in 1.3851 ms
+2024-09-20 22:47:48.835 +02:00 [ERR] Error in the dapper context while trying to query single row: Invalid column name 'EmailParam'.
+2024-09-20 22:47:48.843 +02:00 [INF] HTTP PUT /api/customers/7 responded 200 in 38.2730 ms
+2024-09-20 22:47:53.738 +02:00 [INF] HTTP GET /api/customers/7 responded 200 in 8.7360 ms
+2024-09-20 22:48:02.364 +02:00 [INF] HTTP GET /api/customers responded 200 in 16.7837 ms
+2024-09-20 22:48:29.703 +02:00 [INF] HTTP POST /api/customers responded 200 in 25.9876 ms
+2024-09-20 22:48:34.459 +02:00 [INF] HTTP GET /api/customers responded 200 in 1.4176 ms
+2024-09-20 22:48:45.957 +02:00 [ERR] Error in the dapper context while etrying to execute sql: Invalid column name 'Id'.
+2024-09-20 22:48:45.959 +02:00 [INF] HTTP DELETE /api/customers/8 responded 400 in 37.5639 ms
+2024-09-20 22:51:45.422 +02:00 [INF] HTTP PUT /api/customers/8 responded 400 in 444.7866 ms
+2024-09-20 22:52:03.196 +02:00 [INF] HTTP PUT /api/customers/8 responded 200 in 19.7100 ms
+2024-09-20 22:52:25.460 +02:00 [INF] HTTP DELETE /api/customers/8 responded 200 in 20.9132 ms
+2024-09-20 22:52:39.862 +02:00 [INF] HTTP GET /api/customers responded 200 in 9.9333 ms
+2024-09-20 22:52:55.369 +02:00 [INF] HTTP GET /api/customers/6 responded 200 in 4.2106 ms
