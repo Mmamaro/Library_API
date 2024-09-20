@@ -15,7 +15,7 @@ namespace Library_API.Data
             _logger = logger;
         }
 
-        public IEnumerable<T> QueryData<T>(string sql)
+        public IList<T>? QueryData<T>(string sql)
         {
             try
             {
@@ -28,7 +28,7 @@ namespace Library_API.Data
                     return null;
                 }
 
-                return data;
+                return data.ToList();
 
             }
             catch (Exception ex)
@@ -38,7 +38,7 @@ namespace Library_API.Data
             }
 
         }
-        public IEnumerable<T> QueryDataWithParameters<T>(string sql, DynamicParameters parameter)
+        public IList<T>? QueryDataWithParameters<T>(string sql, DynamicParameters parameter)
         {
             try
             {
@@ -51,7 +51,7 @@ namespace Library_API.Data
                     return null;
                 }
 
-                return data;
+                return data.ToList();
             }
             catch (Exception ex)
             {
