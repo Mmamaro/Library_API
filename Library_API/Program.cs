@@ -16,8 +16,10 @@ builder.Host.UseSerilog((context, configuration) =>
 configuration.ReadFrom.Configuration(context.Configuration));
 
 //Registering my services
-builder.Services.AddSingleton<IGenre, GenreRepo>();
 builder.Services.AddSingleton<DapperContext>();
+builder.Services.AddSingleton<IGenre, GenreRepo>();
+builder.Services.AddSingleton<IBook, BookRepo>();
+
 
 var app = builder.Build();
 

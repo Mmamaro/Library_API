@@ -5,7 +5,21 @@
         public int BookId { get; set; } 
         public string Title { get; set; }
         public string ISBN { get; set; }
-        public string GenreName { get; set; }
         public int Quantity { get; set; }
+        public int GenreId { get; set; }
+    }
+
+    public class AddBook
+    {
+        public string Title { get; set; }
+        public string ISBN { get; set; }
+        public int GenreId { get; set; }
+    }
+
+    public class UpdateBook
+    {
+        public string? Title { get; set; }
+        public string? ISBN { get; set; }
+        public int GenreId { get; set; } = 0;
     }
 }

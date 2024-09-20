@@ -28,6 +28,13 @@ namespace Library_API.Controllers
                     return BadRequest( new {Message = "Please provide Genre Name"});
                 }
 
+                var genreExists = _repo.GetGenreByName(request.GenreName);
+
+                if(genreExists != null)
+                {
+                    return BadRequest(new { Message = "Genre name already exists" });
+                }
+
                 var isAdded = _repo.AddGenre(request);
 
                 if (!isAdded)
@@ -134,6 +141,13 @@ namespace Library_API.Controllers
                 if (genre == null)
                 {
                     return NotFound();
+                }
+
+                var genreExists = _repo.GetGenreByName(request.GenreName);
+
+                if (genreExists != null)
+                {
+                    return BadRequest(new { Message = "Genre name already exists" });
                 }
 
                 var isUpdated = _repo.UpdateGenre(id, request);
