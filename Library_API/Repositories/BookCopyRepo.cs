@@ -1,4 +1,5 @@
-﻿using Dapper;
+﻿using Azure.Core;
+using Dapper;
 using Library_API.Data;
 using Library_API.Models;
 
@@ -7,12 +8,13 @@ namespace Library_API.Repositories
     public interface IBookCopy
     {
         public bool AddBookCopy(AddBookCopy request);
-        public IList<BookCopy> GetBookCopies();
+        public List<BookCopy> GetBookCopies();
         public BookCopy GetBookCopyById(int id);
         public BookCopy GetBookCopyByBarCode(string barcode);
-        public IList<BookCopy> GetBookCopiesByBookId(int id);
-        public IList<BookCopy> GetBookCopiesByStatus(string status);
+        public List<BookCopy> GetBookCopiesByBookId(int id);
+        public List<BookCopy> GetBookCopiesByStatus(string status);
         public bool UpdateBookCopy(int id, AddBookCopy request);
+        public bool UpdateBookCopyStatus(int id, string status);
         public bool DeleteBookCopy(int id);
     }
     public class BookCopyRepo : IBookCopy
@@ -67,7 +69,7 @@ namespace Library_API.Repositories
             }
         }
 
-        public IList<BookCopy> GetBookCopies()
+        public List<BookCopy> GetBookCopies()
         {
             try
             {
@@ -84,7 +86,7 @@ namespace Library_API.Repositories
             }
         }
 
-        public IList<BookCopy> GetBookCopiesByBookId(int id)
+        public List<BookCopy> GetBookCopiesByBookId(int id)
         {
             try
             {
@@ -103,7 +105,7 @@ namespace Library_API.Repositories
             }
         }
 
-        public IList<BookCopy> GetBookCopiesByStatus(string status)
+        public List<BookCopy> GetBookCopiesByStatus(string status)
         {
             try
             {
@@ -197,6 +199,26 @@ namespace Library_API.Repositories
             catch (Exception ex)
             {
                 _logger.LogError("Error in the BookCopy Repo while trying to update a book copy: {ex}", ex.Message);
+                return false;
+            }
+        }
+
+        public bool UpdateBookCopyStatus(int id, string status)
+        {
+            try
+            {
+                var parameters = new DynamicParameters();
+                parameters.Add("CopyIdParam", id);
+                parameters.Add("StatusParam", status.ToLower());
+
+                string sql = @"UPDATE [dbo].[BookCopies] SET Status = @StatusParam WHERE CopyId = @CopyIdParam";
+
+                return _context.ExecuteSql(sql, parameters);
+
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError("Error in the BookCopy Repo while trying to update book copy status: {ex}", ex.Message);
                 return false;
             }
         }

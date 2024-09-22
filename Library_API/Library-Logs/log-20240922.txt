@@ -1,0 +1,490 @@
+2024-09-22 09:22:51.723 +02:00 [INF] HTTP POST /api/Borrowing/addborrowing responded 400 in 98.9406 ms
+2024-09-22 09:23:12.201 +02:00 [INF] HTTP POST /api/Borrowing/addborrowing responded 400 in 3.3765 ms
+2024-09-22 09:24:19.130 +02:00 [ERR] Error in the dapper context while etrying to execute sql: SqlDateTime overflow. Must be between 1/1/1753 12:00:00 AM and 12/31/9999 11:59:59 PM.
+2024-09-22 09:24:19.133 +02:00 [INF] HTTP POST /api/Borrowing/addborrowing responded 400 in 865.2230 ms
+2024-09-22 09:24:57.564 +02:00 [ERR] Error in the dapper context while etrying to execute sql: SqlDateTime overflow. Must be between 1/1/1753 12:00:00 AM and 12/31/9999 11:59:59 PM.
+2024-09-22 09:24:57.566 +02:00 [INF] HTTP POST /api/Borrowing/addborrowing responded 400 in 86.6335 ms
+2024-09-22 09:29:48.022 +02:00 [ERR] Error in the dapper context while etrying to execute sql: Conversion failed when converting date and/or time from character string.
+2024-09-22 09:29:48.092 +02:00 [INF] HTTP POST /api/Borrowing/addborrowing responded 400 in 892.9664 ms
+2024-09-22 09:31:29.801 +02:00 [ERR] Error in the Borrowing Repo while trying add a borrowing: String '1/1/1753T00:00:00' was not recognized as a valid DateTime.
+2024-09-22 09:31:29.872 +02:00 [INF] HTTP POST /api/Borrowing/addborrowing responded 400 in 848.1765 ms
+2024-09-22 09:34:18.334 +02:00 [ERR] Error in the Borrowing Repo while trying add a borrowing: String '01-01-1753T00:00:00' was not recognized as a valid DateTime.
+2024-09-22 09:34:18.375 +02:00 [INF] HTTP POST /api/Borrowing/addborrowing responded 400 in 520.9941 ms
+2024-09-22 09:36:47.898 +02:00 [INF] HTTP POST /api/Borrowing/addborrowing responded 200 in 458.8669 ms
+2024-09-22 09:37:24.228 +02:00 [INF] HTTP POST /api/Borrowing/addborrowing responded 404 in 4.4911 ms
+2024-09-22 09:37:42.336 +02:00 [INF] HTTP POST /api/Borrowing/addborrowing responded 404 in 9.2217 ms
+2024-09-22 09:38:18.265 +02:00 [INF] HTTP POST /api/Borrowing/addborrowing responded 200 in 28.9952 ms
+2024-09-22 09:38:26.210 +02:00 [INF] HTTP GET /api/Borrowing responded 200 in 29.4046 ms
+2024-09-22 09:42:55.929 +02:00 [INF] HTTP POST /api/Borrowing/addborrowing responded 400 in 61.1888 ms
+2024-09-22 09:44:27.950 +02:00 [INF] HTTP POST /api/Borrowing/addborrowing responded 400 in 53.2492 ms
+2024-09-22 09:44:45.878 +02:00 [INF] HTTP POST /api/Borrowing/addborrowing responded 400 in 1.3535 ms
+2024-09-22 09:45:00.850 +02:00 [INF] HTTP POST /api/Borrowing/addborrowing responded 200 in 423.9393 ms
+2024-09-22 09:45:16.544 +02:00 [INF] HTTP GET /api/Borrowing responded 200 in 13.2816 ms
+2024-09-22 09:46:41.876 +02:00 [INF] HTTP POST /api/Borrowing/filters responded 400 in 43.9883 ms
+2024-09-22 09:47:08.278 +02:00 [INF] HTTP POST /api/Borrowing/filters responded 400 in 9.3241 ms
+2024-09-22 09:48:04.078 +02:00 [ERR] Error in the dapper context while trying to query data with parameters: Ambiguous column name 'Status'.
+2024-09-22 09:48:04.104 +02:00 [ERR] Error in the Borrowing Controller while trying to get borrowings by filters: Value cannot be null. (Parameter 'source')
+2024-09-22 09:48:04.110 +02:00 [INF] HTTP POST /api/Borrowing/filters responded 400 in 115.7449 ms
+2024-09-22 09:50:06.957 +02:00 [INF] HTTP POST /api/Borrowing/filters responded 404 in 425.4431 ms
+2024-09-22 09:50:25.100 +02:00 [INF] HTTP POST /api/Borrowing/filters responded 404 in 4.2573 ms
+2024-09-22 09:50:47.183 +02:00 [INF] HTTP POST /api/Borrowing/filters responded 404 in 1.6987 ms
+2024-09-22 09:50:59.834 +02:00 [INF] HTTP GET /api/Borrowing responded 200 in 29.8794 ms
+2024-09-22 09:52:22.335 +02:00 [INF] HTTP POST /api/Borrowing/filters responded 404 in 490.4037 ms
+2024-09-22 09:53:05.272 +02:00 [INF] HTTP POST /api/Borrowing/filters responded 400 in 13.4376 ms
+2024-09-22 09:56:27.173 +02:00 [INF] SELECT B.BorrowingId, C.CustomerId, C.Email, Book.Title, BC.CopyId, 
+                               BC.BarCode, B.BorrowDate, B.DueDate, B.ReturnDate, B.Status 
+                               FROM [dbo].[Borrowings] AS B
+                                 LEFT JOIN [dbo].[Customers] AS C
+                                 ON B.CustomerId = C.CustomerId
+                                 LEFT JOIN [dbo].[BookCopies] AS BC
+                                 ON B.CopyId = BC.CopyId
+                                 LEFT JOIN [dbo].[Books] AS Book
+                                 ON BC.BookId = Book.BookId 
+                                 WHERE BorrowDate < @endDateParam
+2024-09-22 09:56:46.475 +02:00 [INF] HTTP POST /api/Borrowing/filters responded 404 in 110872.3658 ms
+2024-09-22 09:57:18.276 +02:00 [INF] SELECT B.BorrowingId, C.CustomerId, C.Email, Book.Title, BC.CopyId, 
+                               BC.BarCode, B.BorrowDate, B.DueDate, B.ReturnDate, B.Status 
+                               FROM [dbo].[Borrowings] AS B
+                                 LEFT JOIN [dbo].[Customers] AS C
+                                 ON B.CustomerId = C.CustomerId
+                                 LEFT JOIN [dbo].[BookCopies] AS BC
+                                 ON B.CopyId = BC.CopyId
+                                 LEFT JOIN [dbo].[Books] AS Book
+                                 ON BC.BookId = Book.BookId 
+                                 WHERE BorrowDate < @endDateParam
+2024-09-22 09:57:18.292 +02:00 [INF] HTTP POST /api/Borrowing/filters responded 404 in 2909.4066 ms
+2024-09-22 09:57:54.349 +02:00 [INF] SELECT B.BorrowingId, C.CustomerId, C.Email, Book.Title, BC.CopyId, 
+                               BC.BarCode, B.BorrowDate, B.DueDate, B.ReturnDate, B.Status 
+                               FROM [dbo].[Borrowings] AS B
+                                 LEFT JOIN [dbo].[Customers] AS C
+                                 ON B.CustomerId = C.CustomerId
+                                 LEFT JOIN [dbo].[BookCopies] AS BC
+                                 ON B.CopyId = BC.CopyId
+                                 LEFT JOIN [dbo].[Books] AS Book
+                                 ON BC.BookId = Book.BookId 
+                                 WHERE BorrowDate < @endDateParam
+2024-09-22 09:57:54.379 +02:00 [INF] HTTP POST /api/Borrowing/filters responded 200 in 3032.9281 ms
+2024-09-22 09:58:10.021 +02:00 [INF] SELECT B.BorrowingId, C.CustomerId, C.Email, Book.Title, BC.CopyId, 
+                               BC.BarCode, B.BorrowDate, B.DueDate, B.ReturnDate, B.Status 
+                               FROM [dbo].[Borrowings] AS B
+                                 LEFT JOIN [dbo].[Customers] AS C
+                                 ON B.CustomerId = C.CustomerId
+                                 LEFT JOIN [dbo].[BookCopies] AS BC
+                                 ON B.CopyId = BC.CopyId
+                                 LEFT JOIN [dbo].[Books] AS Book
+                                 ON BC.BookId = Book.BookId 
+                                 WHERE BorrowDate < @endDateParam
+2024-09-22 09:58:10.024 +02:00 [INF] HTTP POST /api/Borrowing/filters responded 200 in 3193.1001 ms
+2024-09-22 09:58:37.697 +02:00 [INF] SELECT B.BorrowingId, C.CustomerId, C.Email, Book.Title, BC.CopyId, 
+                               BC.BarCode, B.BorrowDate, B.DueDate, B.ReturnDate, B.Status 
+                               FROM [dbo].[Borrowings] AS B
+                                 LEFT JOIN [dbo].[Customers] AS C
+                                 ON B.CustomerId = C.CustomerId
+                                 LEFT JOIN [dbo].[BookCopies] AS BC
+                                 ON B.CopyId = BC.CopyId
+                                 LEFT JOIN [dbo].[Books] AS Book
+                                 ON BC.BookId = Book.BookId 
+                                 WHERE BorrowDate < @endDateParam
+2024-09-22 09:58:37.705 +02:00 [INF] HTTP POST /api/Borrowing/filters responded 200 in 2848.5216 ms
+2024-09-22 09:59:00.447 +02:00 [INF] SELECT B.BorrowingId, C.CustomerId, C.Email, Book.Title, BC.CopyId, 
+                               BC.BarCode, B.BorrowDate, B.DueDate, B.ReturnDate, B.Status 
+                               FROM [dbo].[Borrowings] AS B
+                                 LEFT JOIN [dbo].[Customers] AS C
+                                 ON B.CustomerId = C.CustomerId
+                                 LEFT JOIN [dbo].[BookCopies] AS BC
+                                 ON B.CopyId = BC.CopyId
+                                 LEFT JOIN [dbo].[Books] AS Book
+                                 ON BC.BookId = Book.BookId 
+                                 WHERE BorrowDate < @endDateParam
+2024-09-22 09:59:00.465 +02:00 [INF] HTTP POST /api/Borrowing/filters responded 200 in 3062.8797 ms
+2024-09-22 10:01:38.377 +02:00 [INF] SELECT B.BorrowingId, C.CustomerId, C.Email, Book.Title, BC.CopyId, 
+                               BC.BarCode, B.BorrowDate, B.DueDate, B.ReturnDate, B.Status 
+                               FROM [dbo].[Borrowings] AS B
+                                 LEFT JOIN [dbo].[Customers] AS C
+                                 ON B.CustomerId = C.CustomerId
+                                 LEFT JOIN [dbo].[BookCopies] AS BC
+                                 ON B.CopyId = BC.CopyId
+                                 LEFT JOIN [dbo].[Books] AS Book
+                                 ON BC.BookId = Book.BookId 
+                                 WHERE BorrowDate < @endDateParam
+2024-09-22 10:01:38.814 +02:00 [INF] HTTP POST /api/Borrowing/filters responded 200 in 3321.8671 ms
+2024-09-22 10:04:54.549 +02:00 [INF] SELECT B.BorrowingId, C.CustomerId, C.Email, Book.Title, BC.CopyId, 
+                               BC.BarCode, B.BorrowDate, B.DueDate, B.ReturnDate, B.Status 
+                               FROM [dbo].[Borrowings] AS B
+                                 LEFT JOIN [dbo].[Customers] AS C
+                                 ON B.CustomerId = C.CustomerId
+                                 LEFT JOIN [dbo].[BookCopies] AS BC
+                                 ON B.CopyId = BC.CopyId
+                                 LEFT JOIN [dbo].[Books] AS Book
+                                 ON BC.BookId = Book.BookId 
+                                 WHERE BorrowingId = @BorrowingIdParam AND BorrowDate > @startDateParam AND BorrowDate < @endDateParam
+2024-09-22 10:04:55.020 +02:00 [INF] HTTP POST /api/Borrowing/filters responded 200 in 3450.1714 ms
+2024-09-22 10:05:12.142 +02:00 [INF] SELECT B.BorrowingId, C.CustomerId, C.Email, Book.Title, BC.CopyId, 
+                               BC.BarCode, B.BorrowDate, B.DueDate, B.ReturnDate, B.Status 
+                               FROM [dbo].[Borrowings] AS B
+                                 LEFT JOIN [dbo].[Customers] AS C
+                                 ON B.CustomerId = C.CustomerId
+                                 LEFT JOIN [dbo].[BookCopies] AS BC
+                                 ON B.CopyId = BC.CopyId
+                                 LEFT JOIN [dbo].[Books] AS Book
+                                 ON BC.BookId = Book.BookId 
+                                 WHERE BorrowDate > @startDateParam AND BorrowDate < @endDateParam
+2024-09-22 10:05:12.150 +02:00 [INF] HTTP POST /api/Borrowing/filters responded 200 in 3322.6688 ms
+2024-09-22 10:05:38.280 +02:00 [INF] SELECT B.BorrowingId, C.CustomerId, C.Email, Book.Title, BC.CopyId, 
+                               BC.BarCode, B.BorrowDate, B.DueDate, B.ReturnDate, B.Status 
+                               FROM [dbo].[Borrowings] AS B
+                                 LEFT JOIN [dbo].[Customers] AS C
+                                 ON B.CustomerId = C.CustomerId
+                                 LEFT JOIN [dbo].[BookCopies] AS BC
+                                 ON B.CopyId = BC.CopyId
+                                 LEFT JOIN [dbo].[Books] AS Book
+                                 ON BC.BookId = Book.BookId 
+                                 WHERE BorrowDate > @startDateParam AND BorrowDate < @endDateParam AND B.Status < @StatusParam
+2024-09-22 10:05:38.313 +02:00 [INF] HTTP POST /api/Borrowing/filters responded 404 in 3802.5186 ms
+2024-09-22 10:05:54.898 +02:00 [INF] SELECT B.BorrowingId, C.CustomerId, C.Email, Book.Title, BC.CopyId, 
+                               BC.BarCode, B.BorrowDate, B.DueDate, B.ReturnDate, B.Status 
+                               FROM [dbo].[Borrowings] AS B
+                                 LEFT JOIN [dbo].[Customers] AS C
+                                 ON B.CustomerId = C.CustomerId
+                                 LEFT JOIN [dbo].[BookCopies] AS BC
+                                 ON B.CopyId = BC.CopyId
+                                 LEFT JOIN [dbo].[Books] AS Book
+                                 ON BC.BookId = Book.BookId 
+                                 WHERE BorrowDate > @startDateParam AND BorrowDate < @endDateParam
+2024-09-22 10:05:54.913 +02:00 [INF] HTTP POST /api/Borrowing/filters responded 200 in 2579.8205 ms
+2024-09-22 10:06:12.955 +02:00 [INF] SELECT B.BorrowingId, C.CustomerId, C.Email, Book.Title, BC.CopyId, 
+                               BC.BarCode, B.BorrowDate, B.DueDate, B.ReturnDate, B.Status 
+                               FROM [dbo].[Borrowings] AS B
+                                 LEFT JOIN [dbo].[Customers] AS C
+                                 ON B.CustomerId = C.CustomerId
+                                 LEFT JOIN [dbo].[BookCopies] AS BC
+                                 ON B.CopyId = BC.CopyId
+                                 LEFT JOIN [dbo].[Books] AS Book
+                                 ON BC.BookId = Book.BookId 
+                                 WHERE BorrowDate > @startDateParam AND BorrowDate < @endDateParam AND B.Status < @StatusParam
+2024-09-22 10:06:12.958 +02:00 [INF] HTTP POST /api/Borrowing/filters responded 404 in 4351.3787 ms
+2024-09-22 10:07:47.922 +02:00 [INF] SELECT B.BorrowingId, C.CustomerId, C.Email, Book.Title, BC.CopyId, 
+                               BC.BarCode, B.BorrowDate, B.DueDate, B.ReturnDate, B.Status 
+                               FROM [dbo].[Borrowings] AS B
+                                 LEFT JOIN [dbo].[Customers] AS C
+                                 ON B.CustomerId = C.CustomerId
+                                 LEFT JOIN [dbo].[BookCopies] AS BC
+                                 ON B.CopyId = BC.CopyId
+                                 LEFT JOIN [dbo].[Books] AS Book
+                                 ON BC.BookId = Book.BookId 
+                                 WHERE BorrowingId = @BorrowingIdParam AND BorrowDate > @startDateParam AND BorrowDate < @endDateParam
+2024-09-22 10:07:48.317 +02:00 [INF] HTTP POST /api/Borrowing/filters responded 200 in 3006.5711 ms
+2024-09-22 10:07:57.925 +02:00 [INF] HTTP POST /api/Borrowing/filters responded 400 in 23.0748 ms
+2024-09-22 10:08:19.164 +02:00 [INF] SELECT B.BorrowingId, C.CustomerId, C.Email, Book.Title, BC.CopyId, 
+                               BC.BarCode, B.BorrowDate, B.DueDate, B.ReturnDate, B.Status 
+                               FROM [dbo].[Borrowings] AS B
+                                 LEFT JOIN [dbo].[Customers] AS C
+                                 ON B.CustomerId = C.CustomerId
+                                 LEFT JOIN [dbo].[BookCopies] AS BC
+                                 ON B.CopyId = BC.CopyId
+                                 LEFT JOIN [dbo].[Books] AS Book
+                                 ON BC.BookId = Book.BookId 
+                                 WHERE BorrowDate > @startDateParam AND BorrowDate < @endDateParam AND B.Status = @StatusParam
+2024-09-22 10:08:19.174 +02:00 [INF] HTTP POST /api/Borrowing/filters responded 200 in 2363.0090 ms
+2024-09-22 10:08:51.773 +02:00 [INF] SELECT B.BorrowingId, C.CustomerId, C.Email, Book.Title, BC.CopyId, 
+                               BC.BarCode, B.BorrowDate, B.DueDate, B.ReturnDate, B.Status 
+                               FROM [dbo].[Borrowings] AS B
+                                 LEFT JOIN [dbo].[Customers] AS C
+                                 ON B.CustomerId = C.CustomerId
+                                 LEFT JOIN [dbo].[BookCopies] AS BC
+                                 ON B.CopyId = BC.CopyId
+                                 LEFT JOIN [dbo].[Books] AS Book
+                                 ON BC.BookId = Book.BookId 
+                                 WHERE BorrowDate > @startDateParam AND BorrowDate < @endDateParam AND B.Status = @StatusParam
+2024-09-22 10:08:51.781 +02:00 [INF] HTTP POST /api/Borrowing/filters responded 404 in 2545.7156 ms
+2024-09-22 10:09:04.191 +02:00 [INF] SELECT B.BorrowingId, C.CustomerId, C.Email, Book.Title, BC.CopyId, 
+                               BC.BarCode, B.BorrowDate, B.DueDate, B.ReturnDate, B.Status 
+                               FROM [dbo].[Borrowings] AS B
+                                 LEFT JOIN [dbo].[Customers] AS C
+                                 ON B.CustomerId = C.CustomerId
+                                 LEFT JOIN [dbo].[BookCopies] AS BC
+                                 ON B.CopyId = BC.CopyId
+                                 LEFT JOIN [dbo].[Books] AS Book
+                                 ON BC.BookId = Book.BookId 
+                                 WHERE BorrowDate > @startDateParam AND BorrowDate < @endDateParam
+2024-09-22 10:09:04.197 +02:00 [INF] HTTP POST /api/Borrowing/filters responded 200 in 2331.2951 ms
+2024-09-22 10:09:16.952 +02:00 [INF] SELECT B.BorrowingId, C.CustomerId, C.Email, Book.Title, BC.CopyId, 
+                               BC.BarCode, B.BorrowDate, B.DueDate, B.ReturnDate, B.Status 
+                               FROM [dbo].[Borrowings] AS B
+                                 LEFT JOIN [dbo].[Customers] AS C
+                                 ON B.CustomerId = C.CustomerId
+                                 LEFT JOIN [dbo].[BookCopies] AS BC
+                                 ON B.CopyId = BC.CopyId
+                                 LEFT JOIN [dbo].[Books] AS Book
+                                 ON BC.BookId = Book.BookId 
+                                 WHERE CustomerId = @CustomerIdParam AND BorrowDate > @startDateParam AND BorrowDate < @endDateParam
+2024-09-22 10:09:16.994 +02:00 [ERR] Error in the dapper context while trying to query data with parameters: Ambiguous column name 'CustomerId'.
+2024-09-22 10:09:17.018 +02:00 [ERR] Error in the Borrowing Controller while trying to get borrowings by filters: Value cannot be null. (Parameter 'source')
+2024-09-22 10:09:17.020 +02:00 [INF] HTTP POST /api/Borrowing/filters responded 400 in 2329.0379 ms
+2024-09-22 10:11:03.512 +02:00 [INF] SELECT B.BorrowingId, C.CustomerId, C.Email, Book.Title, BC.CopyId, 
+                               BC.BarCode, B.BorrowDate, B.DueDate, B.ReturnDate, B.Status 
+                               FROM [dbo].[Borrowings] AS B
+                                 LEFT JOIN [dbo].[Customers] AS C
+                                 ON B.CustomerId = C.CustomerId
+                                 LEFT JOIN [dbo].[BookCopies] AS BC
+                                 ON B.CopyId = BC.CopyId
+                                 LEFT JOIN [dbo].[Books] AS Book
+                                 ON BC.BookId = Book.BookId 
+                                 WHERE C.CustomerId = @CustomerIdParam AND B.BorrowDate > @startDateParam AND B.BorrowDate < @endDateParam
+2024-09-22 10:11:03.914 +02:00 [INF] HTTP POST /api/Borrowing/filters responded 200 in 495.5767 ms
+2024-09-22 10:11:13.590 +02:00 [INF] SELECT B.BorrowingId, C.CustomerId, C.Email, Book.Title, BC.CopyId, 
+                               BC.BarCode, B.BorrowDate, B.DueDate, B.ReturnDate, B.Status 
+                               FROM [dbo].[Borrowings] AS B
+                                 LEFT JOIN [dbo].[Customers] AS C
+                                 ON B.CustomerId = C.CustomerId
+                                 LEFT JOIN [dbo].[BookCopies] AS BC
+                                 ON B.CopyId = BC.CopyId
+                                 LEFT JOIN [dbo].[Books] AS Book
+                                 ON BC.BookId = Book.BookId 
+                                 WHERE C.CustomerId = @CustomerIdParam AND B.BorrowDate > @startDateParam AND B.BorrowDate < @endDateParam
+2024-09-22 10:11:13.597 +02:00 [INF] HTTP POST /api/Borrowing/filters responded 200 in 8.3648 ms
+2024-09-22 10:11:19.800 +02:00 [INF] SELECT B.BorrowingId, C.CustomerId, C.Email, Book.Title, BC.CopyId, 
+                               BC.BarCode, B.BorrowDate, B.DueDate, B.ReturnDate, B.Status 
+                               FROM [dbo].[Borrowings] AS B
+                                 LEFT JOIN [dbo].[Customers] AS C
+                                 ON B.CustomerId = C.CustomerId
+                                 LEFT JOIN [dbo].[BookCopies] AS BC
+                                 ON B.CopyId = BC.CopyId
+                                 LEFT JOIN [dbo].[Books] AS Book
+                                 ON BC.BookId = Book.BookId 
+                                 WHERE C.CustomerId = @CustomerIdParam AND B.BorrowDate > @startDateParam AND B.BorrowDate < @endDateParam
+2024-09-22 10:11:19.813 +02:00 [INF] HTTP POST /api/Borrowing/filters responded 404 in 13.2899 ms
+2024-09-22 10:11:42.658 +02:00 [INF] SELECT B.BorrowingId, C.CustomerId, C.Email, Book.Title, BC.CopyId, 
+                               BC.BarCode, B.BorrowDate, B.DueDate, B.ReturnDate, B.Status 
+                               FROM [dbo].[Borrowings] AS B
+                                 LEFT JOIN [dbo].[Customers] AS C
+                                 ON B.CustomerId = C.CustomerId
+                                 LEFT JOIN [dbo].[BookCopies] AS BC
+                                 ON B.CopyId = BC.CopyId
+                                 LEFT JOIN [dbo].[Books] AS Book
+                                 ON BC.BookId = Book.BookId 
+                                 WHERE C.CopyId = @CopyIdParam AND B.BorrowDate > @startDateParam AND B.BorrowDate < @endDateParam
+2024-09-22 10:11:42.712 +02:00 [ERR] Error in the dapper context while trying to query data with parameters: Invalid column name 'CopyId'.
+2024-09-22 10:11:42.733 +02:00 [ERR] Error in the Borrowing Controller while trying to get borrowings by filters: Value cannot be null. (Parameter 'source')
+2024-09-22 10:11:42.735 +02:00 [INF] HTTP POST /api/Borrowing/filters responded 400 in 77.7697 ms
+2024-09-22 10:11:54.989 +02:00 [INF] SELECT B.BorrowingId, C.CustomerId, C.Email, Book.Title, BC.CopyId, 
+                               BC.BarCode, B.BorrowDate, B.DueDate, B.ReturnDate, B.Status 
+                               FROM [dbo].[Borrowings] AS B
+                                 LEFT JOIN [dbo].[Customers] AS C
+                                 ON B.CustomerId = C.CustomerId
+                                 LEFT JOIN [dbo].[BookCopies] AS BC
+                                 ON B.CopyId = BC.CopyId
+                                 LEFT JOIN [dbo].[Books] AS Book
+                                 ON BC.BookId = Book.BookId 
+                                 WHERE C.CopyId = @CopyIdParam AND B.BorrowDate > @startDateParam AND B.BorrowDate < @endDateParam
+2024-09-22 10:11:55.026 +02:00 [ERR] Error in the dapper context while trying to query data with parameters: Invalid column name 'CopyId'.
+2024-09-22 10:11:55.045 +02:00 [ERR] Error in the Borrowing Controller while trying to get borrowings by filters: Value cannot be null. (Parameter 'source')
+2024-09-22 10:11:55.047 +02:00 [INF] HTTP POST /api/Borrowing/filters responded 400 in 57.8764 ms
+2024-09-22 10:14:17.334 +02:00 [INF] SELECT B.BorrowingId, C.CustomerId, C.Email, Book.Title, BC.CopyId, 
+                               BC.BarCode, B.BorrowDate, B.DueDate, B.ReturnDate, B.Status 
+                               FROM [dbo].[Borrowings] AS B
+                                 LEFT JOIN [dbo].[Customers] AS C
+                                 ON B.CustomerId = C.CustomerId
+                                 LEFT JOIN [dbo].[BookCopies] AS BC
+                                 ON B.CopyId = BC.CopyId
+                                 LEFT JOIN [dbo].[Books] AS Book
+                                 ON BC.BookId = Book.BookId 
+                                 WHERE BC.CopyId = @CopyIdParam AND B.BorrowDate > @startDateParam AND B.BorrowDate < @endDateParam
+2024-09-22 10:14:17.736 +02:00 [INF] HTTP POST /api/Borrowing/filters responded 404 in 497.9266 ms
+2024-09-22 10:14:28.364 +02:00 [INF] SELECT B.BorrowingId, C.CustomerId, C.Email, Book.Title, BC.CopyId, 
+                               BC.BarCode, B.BorrowDate, B.DueDate, B.ReturnDate, B.Status 
+                               FROM [dbo].[Borrowings] AS B
+                                 LEFT JOIN [dbo].[Customers] AS C
+                                 ON B.CustomerId = C.CustomerId
+                                 LEFT JOIN [dbo].[BookCopies] AS BC
+                                 ON B.CopyId = BC.CopyId
+                                 LEFT JOIN [dbo].[Books] AS Book
+                                 ON BC.BookId = Book.BookId 
+                                 WHERE BC.CopyId = @CopyIdParam AND B.BorrowDate > @startDateParam AND B.BorrowDate < @endDateParam
+2024-09-22 10:14:28.388 +02:00 [INF] HTTP POST /api/Borrowing/filters responded 200 in 25.6268 ms
+2024-09-22 10:14:39.152 +02:00 [INF] SELECT B.BorrowingId, C.CustomerId, C.Email, Book.Title, BC.CopyId, 
+                               BC.BarCode, B.BorrowDate, B.DueDate, B.ReturnDate, B.Status 
+                               FROM [dbo].[Borrowings] AS B
+                                 LEFT JOIN [dbo].[Customers] AS C
+                                 ON B.CustomerId = C.CustomerId
+                                 LEFT JOIN [dbo].[BookCopies] AS BC
+                                 ON B.CopyId = BC.CopyId
+                                 LEFT JOIN [dbo].[Books] AS Book
+                                 ON BC.BookId = Book.BookId 
+                                 WHERE B.BorrowingId = @BorrowingIdParam AND BC.CopyId = @CopyIdParam AND B.BorrowDate > @startDateParam AND B.BorrowDate < @endDateParam
+2024-09-22 10:14:39.159 +02:00 [INF] HTTP POST /api/Borrowing/filters responded 404 in 6.9591 ms
+2024-09-22 10:14:46.116 +02:00 [INF] SELECT B.BorrowingId, C.CustomerId, C.Email, Book.Title, BC.CopyId, 
+                               BC.BarCode, B.BorrowDate, B.DueDate, B.ReturnDate, B.Status 
+                               FROM [dbo].[Borrowings] AS B
+                                 LEFT JOIN [dbo].[Customers] AS C
+                                 ON B.CustomerId = C.CustomerId
+                                 LEFT JOIN [dbo].[BookCopies] AS BC
+                                 ON B.CopyId = BC.CopyId
+                                 LEFT JOIN [dbo].[Books] AS Book
+                                 ON BC.BookId = Book.BookId 
+                                 WHERE B.BorrowingId = @BorrowingIdParam AND BC.CopyId = @CopyIdParam AND B.BorrowDate > @startDateParam AND B.BorrowDate < @endDateParam
+2024-09-22 10:14:46.119 +02:00 [INF] HTTP POST /api/Borrowing/filters responded 200 in 3.0485 ms
+2024-09-22 10:14:59.238 +02:00 [INF] SELECT B.BorrowingId, C.CustomerId, C.Email, Book.Title, BC.CopyId, 
+                               BC.BarCode, B.BorrowDate, B.DueDate, B.ReturnDate, B.Status 
+                               FROM [dbo].[Borrowings] AS B
+                                 LEFT JOIN [dbo].[Customers] AS C
+                                 ON B.CustomerId = C.CustomerId
+                                 LEFT JOIN [dbo].[BookCopies] AS BC
+                                 ON B.CopyId = BC.CopyId
+                                 LEFT JOIN [dbo].[Books] AS Book
+                                 ON BC.BookId = Book.BookId 
+                                 WHERE BC.CopyId = @CopyIdParam AND C.CustomerId = @CustomerIdParam AND B.BorrowDate > @startDateParam AND B.BorrowDate < @endDateParam
+2024-09-22 10:14:59.250 +02:00 [INF] HTTP POST /api/Borrowing/filters responded 200 in 13.8153 ms
+2024-09-22 10:15:05.349 +02:00 [INF] SELECT B.BorrowingId, C.CustomerId, C.Email, Book.Title, BC.CopyId, 
+                               BC.BarCode, B.BorrowDate, B.DueDate, B.ReturnDate, B.Status 
+                               FROM [dbo].[Borrowings] AS B
+                                 LEFT JOIN [dbo].[Customers] AS C
+                                 ON B.CustomerId = C.CustomerId
+                                 LEFT JOIN [dbo].[BookCopies] AS BC
+                                 ON B.CopyId = BC.CopyId
+                                 LEFT JOIN [dbo].[Books] AS Book
+                                 ON BC.BookId = Book.BookId 
+                                 WHERE BC.CopyId = @CopyIdParam AND C.CustomerId = @CustomerIdParam AND B.BorrowDate > @startDateParam AND B.BorrowDate < @endDateParam
+2024-09-22 10:15:05.351 +02:00 [INF] HTTP POST /api/Borrowing/filters responded 404 in 2.8103 ms
+2024-09-22 10:15:16.583 +02:00 [INF] SELECT B.BorrowingId, C.CustomerId, C.Email, Book.Title, BC.CopyId, 
+                               BC.BarCode, B.BorrowDate, B.DueDate, B.ReturnDate, B.Status 
+                               FROM [dbo].[Borrowings] AS B
+                                 LEFT JOIN [dbo].[Customers] AS C
+                                 ON B.CustomerId = C.CustomerId
+                                 LEFT JOIN [dbo].[BookCopies] AS BC
+                                 ON B.CopyId = BC.CopyId
+                                 LEFT JOIN [dbo].[Books] AS Book
+                                 ON BC.BookId = Book.BookId 
+                                 WHERE BC.CopyId = @CopyIdParam AND B.BorrowDate > @startDateParam AND B.BorrowDate < @endDateParam AND B.Status = @StatusParam
+2024-09-22 10:15:16.600 +02:00 [INF] HTTP POST /api/Borrowing/filters responded 200 in 18.0429 ms
+2024-09-22 10:16:04.957 +02:00 [INF] SELECT B.BorrowingId, C.CustomerId, C.Email, Book.Title, BC.CopyId, 
+                               BC.BarCode, B.BorrowDate, B.DueDate, B.ReturnDate, B.Status 
+                               FROM [dbo].[Borrowings] AS B
+                                 LEFT JOIN [dbo].[Customers] AS C
+                                 ON B.CustomerId = C.CustomerId
+                                 LEFT JOIN [dbo].[BookCopies] AS BC
+                                 ON B.CopyId = BC.CopyId
+                                 LEFT JOIN [dbo].[Books] AS Book
+                                 ON BC.BookId = Book.BookId 
+                                 WHERE BC.CopyId = @CopyIdParam AND B.BorrowDate > @startDateParam AND B.BorrowDate < @endDateParam AND B.Status = @StatusParam
+2024-09-22 10:16:04.966 +02:00 [INF] HTTP POST /api/Borrowing/filters responded 404 in 13.1943 ms
+2024-09-22 10:16:12.782 +02:00 [INF] SELECT B.BorrowingId, C.CustomerId, C.Email, Book.Title, BC.CopyId, 
+                               BC.BarCode, B.BorrowDate, B.DueDate, B.ReturnDate, B.Status 
+                               FROM [dbo].[Borrowings] AS B
+                                 LEFT JOIN [dbo].[Customers] AS C
+                                 ON B.CustomerId = C.CustomerId
+                                 LEFT JOIN [dbo].[BookCopies] AS BC
+                                 ON B.CopyId = BC.CopyId
+                                 LEFT JOIN [dbo].[Books] AS Book
+                                 ON BC.BookId = Book.BookId 
+                                 WHERE BC.CopyId = @CopyIdParam AND B.BorrowDate > @startDateParam AND B.BorrowDate < @endDateParam AND B.Status = @StatusParam
+2024-09-22 10:16:12.786 +02:00 [INF] HTTP POST /api/Borrowing/filters responded 200 in 4.1564 ms
+2024-09-22 10:16:20.201 +02:00 [INF] SELECT B.BorrowingId, C.CustomerId, C.Email, Book.Title, BC.CopyId, 
+                               BC.BarCode, B.BorrowDate, B.DueDate, B.ReturnDate, B.Status 
+                               FROM [dbo].[Borrowings] AS B
+                                 LEFT JOIN [dbo].[Customers] AS C
+                                 ON B.CustomerId = C.CustomerId
+                                 LEFT JOIN [dbo].[BookCopies] AS BC
+                                 ON B.CopyId = BC.CopyId
+                                 LEFT JOIN [dbo].[Books] AS Book
+                                 ON BC.BookId = Book.BookId 
+                                 WHERE B.BorrowDate > @startDateParam AND B.BorrowDate < @endDateParam AND B.Status = @StatusParam
+2024-09-22 10:16:20.227 +02:00 [INF] HTTP POST /api/Borrowing/filters responded 200 in 26.0157 ms
+2024-09-22 10:16:28.922 +02:00 [INF] SELECT B.BorrowingId, C.CustomerId, C.Email, Book.Title, BC.CopyId, 
+                               BC.BarCode, B.BorrowDate, B.DueDate, B.ReturnDate, B.Status 
+                               FROM [dbo].[Borrowings] AS B
+                                 LEFT JOIN [dbo].[Customers] AS C
+                                 ON B.CustomerId = C.CustomerId
+                                 LEFT JOIN [dbo].[BookCopies] AS BC
+                                 ON B.CopyId = BC.CopyId
+                                 LEFT JOIN [dbo].[Books] AS Book
+                                 ON BC.BookId = Book.BookId 
+                                 WHERE B.BorrowDate > @startDateParam AND B.BorrowDate < @endDateParam AND B.Status = @StatusParam
+2024-09-22 10:16:28.927 +02:00 [INF] HTTP POST /api/Borrowing/filters responded 404 in 4.8342 ms
+2024-09-22 10:18:29.225 +02:00 [INF] HTTP PUT /api/Borrowing/borrowing-return/2 responded 200 in 55.4452 ms
+2024-09-22 10:22:00.099 +02:00 [ERR] Error in the dapper context while etrying to execute sql: The DELETE statement conflicted with the REFERENCE constraint "FK__Fines__Borrowing__656C112C". The conflict occurred in database "LibraryDb", table "dbo.Fines", column 'BorrowingId'.
+The statement has been terminated.
+2024-09-22 10:22:00.101 +02:00 [INF] HTTP DELETE /api/Borrowing/2 responded 400 in 82.9686 ms
+2024-09-22 10:25:56.846 +02:00 [INF] HTTP DELETE /api/Borrowing/2 responded 200 in 440.7853 ms
+2024-09-22 10:27:10.924 +02:00 [INF] HTTP POST /api/Borrowing/addborrowing responded 400 in 19.2991 ms
+2024-09-22 10:27:21.353 +02:00 [INF] HTTP POST /api/Borrowing/addborrowing responded 400 in 1.4075 ms
+2024-09-22 10:27:27.356 +02:00 [INF] HTTP POST /api/Borrowing/addborrowing responded 404 in 21.7685 ms
+2024-09-22 10:28:00.215 +02:00 [INF] HTTP GET /api/Borrowing responded 200 in 409.6225 ms
+2024-09-22 10:28:33.897 +02:00 [INF] HTTP POST /api/Borrowing/addborrowing responded 400 in 39.2438 ms
+2024-09-22 10:28:42.323 +02:00 [INF] HTTP POST /api/Borrowing/addborrowing responded 200 in 73.4426 ms
+2024-09-22 10:30:24.292 +02:00 [INF] HTTP PUT /api/Borrowing/borrowing-return/5 responded 200 in 32.0607 ms
+2024-09-22 10:33:23.585 +02:00 [INF] HTTP PUT /api/Borrowing/borrowing-return/7 responded 400 in 6.2034 ms
+2024-09-22 10:33:32.348 +02:00 [INF] HTTP PUT /api/Borrowing/borrowing-return/7 responded 404 in 5.3130 ms
+2024-09-22 10:34:05.525 +02:00 [INF] HTTP PUT /api/Borrowing/borrowing-return/4 responded 200 in 31.3625 ms
+2024-09-22 10:35:11.441 +02:00 [INF] HTTP PUT /api/Borrowing/borrowing-return/3 responded 200 in 64.7140 ms
+2024-09-22 10:36:40.961 +02:00 [INF] HTTP POST /api/Borrowing/addborrowing responded 404 in 21.5390 ms
+2024-09-22 10:37:03.861 +02:00 [INF] HTTP POST /api/Borrowing/addborrowing responded 400 in 18.7537 ms
+2024-09-22 10:38:39.706 +02:00 [INF] HTTP POST /api/Borrowing/addborrowing responded 200 in 22.2828 ms
+2024-09-22 10:39:51.440 +02:00 [INF] HTTP PUT /api/Borrowing/borrowing-return/6 responded 200 in 31.7203 ms
+2024-09-22 10:40:37.779 +02:00 [INF] HTTP POST /api/Borrowing/addborrowing responded 200 in 64.4678 ms
+2024-09-22 11:06:56.657 +02:00 [INF] HTTP PUT /api/Borrowing/update-borrowing/7 responded 400 in 91.9730 ms
+2024-09-22 13:58:02.594 +02:00 [INF] HTTP GET /api/fines responded 200 in 609.5619 ms
+2024-09-22 13:58:36.741 +02:00 [INF] HTTP GET /api/fines/1 responded 404 in 77.8757 ms
+2024-09-22 13:58:40.963 +02:00 [INF] HTTP GET /api/fines/2 responded 404 in 1.8464 ms
+2024-09-22 13:58:45.956 +02:00 [INF] HTTP GET /api/fines/3 responded 200 in 2.8172 ms
+2024-09-22 13:59:01.406 +02:00 [INF] HTTP GET /api/fines/5 responded 200 in 10.2206 ms
+2024-09-22 13:59:37.741 +02:00 [INF] HTTP GET /api/fines/get-finebyborrowingid/3 responded 200 in 27.3804 ms
+2024-09-22 14:00:43.904 +02:00 [INF] HTTP GET /api/fines/get-finebycustomeremail responded 404 in 452.1604 ms
+2024-09-22 14:00:48.251 +02:00 [INF] HTTP GET /api/fines/get-finebycustomeremail responded 200 in 25.1993 ms
+2024-09-22 14:00:56.139 +02:00 [INF] HTTP GET /api/fines responded 200 in 12.3396 ms
+2024-09-22 14:01:22.566 +02:00 [INF] HTTP GET /api/fines/get-finebycustomeremail responded 200 in 20.4723 ms
+2024-09-22 14:01:27.514 +02:00 [INF] HTTP GET /api/fines/get-finebycustomeremail responded 200 in 2.9611 ms
+2024-09-22 14:01:33.430 +02:00 [INF] HTTP GET /api/fines/get-finebycustomeremail responded 404 in 3.3658 ms
+2024-09-22 14:01:45.980 +02:00 [INF] HTTP PUT /api/fines/payfine/4 responded 200 in 22.0944 ms
+2024-09-22 14:01:52.049 +02:00 [INF] HTTP PUT /api/fines/payfine/4 responded 400 in 0.5315 ms
+2024-09-22 14:02:01.368 +02:00 [INF] HTTP PUT /api/fines/payfine/9 responded 400 in 1.1810 ms
+2024-09-22 14:02:54.059 +02:00 [INF] HTTP PUT /api/fines/payfine/5 responded 200 in 19.5749 ms
+2024-09-22 14:03:02.061 +02:00 [INF] HTTP GET /api/fines responded 200 in 12.3703 ms
+2024-09-22 14:04:15.531 +02:00 [INF] HTTP POST /api/Borrowing/addborrowing responded 404 in 27.8030 ms
+2024-09-22 14:04:29.202 +02:00 [INF] HTTP POST /api/Borrowing/addborrowing responded 404 in 11.9262 ms
+2024-09-22 14:04:56.055 +02:00 [INF] HTTP POST /api/Borrowing/addborrowing responded 400 in 23.1769 ms
+2024-09-22 14:05:08.406 +02:00 [INF] HTTP PUT /api/fines/payfine/7 responded 400 in 4.3721 ms
+2024-09-22 14:05:30.832 +02:00 [INF] HTTP PUT /api/fines/payfine/7 responded 400 in 5.1793 ms
+2024-09-22 14:05:47.202 +02:00 [INF] HTTP PUT /api/fines/payfine/5 responded 200 in 20.5186 ms
+2024-09-22 14:05:53.256 +02:00 [INF] HTTP GET /api/fines responded 200 in 13.6003 ms
+2024-09-22 14:05:59.604 +02:00 [INF] HTTP GET /api/fines responded 200 in 1.0199 ms
+2024-09-22 14:06:18.008 +02:00 [INF] HTTP PUT /api/fines/payfine/3 responded 200 in 9.6009 ms
+2024-09-22 14:06:27.067 +02:00 [INF] HTTP GET /api/fines responded 200 in 0.9802 ms
+2024-09-22 14:06:39.256 +02:00 [INF] HTTP POST /api/Borrowing/addborrowing responded 200 in 27.6417 ms
+2024-09-22 14:06:53.418 +02:00 [INF] HTTP GET /api/Borrowing responded 200 in 21.8924 ms
+2024-09-22 14:07:43.099 +02:00 [INF] SELECT B.BorrowingId, C.CustomerId, C.Email, Book.Title, BC.CopyId, 
+                               BC.BarCode, B.BorrowDate, B.DueDate, B.ReturnDate, B.Status 
+                               FROM [dbo].[Borrowings] AS B
+                                 LEFT JOIN [dbo].[Customers] AS C
+                                 ON B.CustomerId = C.CustomerId
+                                 LEFT JOIN [dbo].[BookCopies] AS BC
+                                 ON B.CopyId = BC.CopyId
+                                 LEFT JOIN [dbo].[Books] AS Book
+                                 ON BC.BookId = Book.BookId 
+                                 WHERE C.CustomerId = @CustomerIdParam AND B.BorrowDate > @startDateParam AND B.BorrowDate < @endDateParam AND B.Status = @StatusParam
+2024-09-22 14:07:43.105 +02:00 [INF] HTTP POST /api/Borrowing/filters responded 404 in 22.8835 ms
+2024-09-22 14:07:51.245 +02:00 [INF] SELECT B.BorrowingId, C.CustomerId, C.Email, Book.Title, BC.CopyId, 
+                               BC.BarCode, B.BorrowDate, B.DueDate, B.ReturnDate, B.Status 
+                               FROM [dbo].[Borrowings] AS B
+                                 LEFT JOIN [dbo].[Customers] AS C
+                                 ON B.CustomerId = C.CustomerId
+                                 LEFT JOIN [dbo].[BookCopies] AS BC
+                                 ON B.CopyId = BC.CopyId
+                                 LEFT JOIN [dbo].[Books] AS Book
+                                 ON BC.BookId = Book.BookId 
+                                 WHERE C.CustomerId = @CustomerIdParam AND B.BorrowDate > @startDateParam AND B.BorrowDate < @endDateParam
+2024-09-22 14:07:51.267 +02:00 [INF] HTTP POST /api/Borrowing/filters responded 200 in 23.0834 ms
+2024-09-22 14:08:16.095 +02:00 [INF] SELECT B.BorrowingId, C.CustomerId, C.Email, Book.Title, BC.CopyId, 
+                               BC.BarCode, B.BorrowDate, B.DueDate, B.ReturnDate, B.Status 
+                               FROM [dbo].[Borrowings] AS B
+                                 LEFT JOIN [dbo].[Customers] AS C
+                                 ON B.CustomerId = C.CustomerId
+                                 LEFT JOIN [dbo].[BookCopies] AS BC
+                                 ON B.CopyId = BC.CopyId
+                                 LEFT JOIN [dbo].[Books] AS Book
+                                 ON BC.BookId = Book.BookId 
+                                 WHERE C.CustomerId = @CustomerIdParam AND B.BorrowDate > @startDateParam AND B.BorrowDate < @endDateParam
+2024-09-22 14:08:16.119 +02:00 [INF] HTTP POST /api/Borrowing/filters responded 200 in 26.8853 ms
+2024-09-22 14:10:31.695 +02:00 [INF] HTTP GET /api/fines responded 200 in 441.6294 ms
+2024-09-22 14:10:49.067 +02:00 [INF] HTTP DELETE /api/fines/5 responded 200 in 66.9856 ms
+2024-09-22 14:11:09.124 +02:00 [INF] HTTP GET /api/fines responded 200 in 22.7126 ms

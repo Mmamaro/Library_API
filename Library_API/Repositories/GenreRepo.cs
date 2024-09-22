@@ -6,7 +6,7 @@ namespace Library_API.Repositories
 {
     public interface IGenre
     {
-        public IList<Genre> GetGenres();
+        public List<Genre> GetGenres();
         public Genre GetGenreById(int id);
         public Genre GetGenreByName(string name);
         public bool AddGenre(AddGenre request);
@@ -103,7 +103,7 @@ namespace Library_API.Repositories
             }
         }
 
-        public IList<Genre> GetGenres()
+        public List<Genre> GetGenres()
         {
             try
             {

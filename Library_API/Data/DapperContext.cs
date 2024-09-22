@@ -15,10 +15,11 @@ namespace Library_API.Data
             _logger = logger;
         }
 
-        public IList<T>? QueryData<T>(string sql)
+        public List<T>? QueryData<T>(string sql)
         {
             try
             {
+
                 using IDbConnection connection = new SqlConnection(_config.GetConnectionString("DefaultConnection"));
 
                 var data = connection.Query<T>(sql);
@@ -38,10 +39,13 @@ namespace Library_API.Data
             }
 
         }
-        public IList<T>? QueryDataWithParameters<T>(string sql, DynamicParameters parameter)
+        public List<T>? QueryDataWithParameters<T>(string sql, DynamicParameters parameter)
         {
             try
             {
+                _logger.LogInformation(sql);
+
+
                 using IDbConnection connection = new SqlConnection(_config.GetConnectionString("DefaultConnection"));
 
                 var data = connection.Query<T>(sql, parameter);

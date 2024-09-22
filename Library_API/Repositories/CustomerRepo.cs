@@ -7,7 +7,7 @@ namespace Library_API.Repositories
 {
     public interface ICustomer
     {
-        public IList<Customer> GetCustomers();
+        public List<Customer> GetCustomers();
         public Customer GetCustomerById(int id);
         public Customer CustomerExists(AddCustomer request);
         public Customer CustomerExistUpdate(UpdateCustomer request);
@@ -126,7 +126,7 @@ namespace Library_API.Repositories
             }
         }
 
-        public IList<Customer> GetCustomers()
+        public List<Customer> GetCustomers()
         {
             try
             {

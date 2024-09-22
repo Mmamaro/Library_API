@@ -7,10 +7,10 @@ namespace Library_API.Repositories
     public interface IBook
     {
         public bool AddBook(AddBook request);
-        public IList<Book> GetBooks();
+        public List<Book> GetBooks();
         public Book GetBookById(int id);
         public Book GetBookByIsbn(string isbn);
-        public IList<Book> GetBooksByGenreId(int Id);
+        public List<Book> GetBooksByGenreId(int Id);
         public bool UpdateBook(int Id, AddBook request);
         public bool DeleteBook(int Id);
 
@@ -104,7 +104,7 @@ namespace Library_API.Repositories
             }
         }
 
-        public IList<Book> GetBooks()
+        public List<Book> GetBooks()
         {
             try
             {
@@ -119,7 +119,7 @@ namespace Library_API.Repositories
             }
         }
 
-        public IList<Book> GetBooksByGenreId(int Id)
+        public List<Book> GetBooksByGenreId(int Id)
         {
             try
             {

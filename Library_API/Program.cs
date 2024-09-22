@@ -21,6 +21,8 @@ builder.Services.AddSingleton<IGenre, GenreRepo>();
 builder.Services.AddSingleton<IBook, BookRepo>();
 builder.Services.AddSingleton<IBookCopy, BookCopyRepo>();
 builder.Services.AddSingleton<ICustomer, CustomerRepo>();
+builder.Services.AddSingleton<IBorrowing, BorrowingRepo>();
+builder.Services.AddSingleton<IFine, FineRepo>();
 
 
 var app = builder.Build();
