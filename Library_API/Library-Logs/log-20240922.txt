@@ -488,3 +488,5 @@ The statement has been terminated.
 2024-09-22 14:10:31.695 +02:00 [INF] HTTP GET /api/fines responded 200 in 441.6294 ms
 2024-09-22 14:10:49.067 +02:00 [INF] HTTP DELETE /api/fines/5 responded 200 in 66.9856 ms
 2024-09-22 14:11:09.124 +02:00 [INF] HTTP GET /api/fines responded 200 in 22.7126 ms
+2024-09-22 14:45:04.128 +02:00 [INF] HTTP GET /api/books responded 200 in 413.2020 ms
+2024-09-22 14:45:24.078 +02:00 [INF] HTTP GET /api/Borrowing responded 200 in 27.1690 ms

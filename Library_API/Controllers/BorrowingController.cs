@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Library_API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/borrowings")]
     [ApiController]
     public class BorrowingController : ControllerBase
     {
