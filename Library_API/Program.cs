@@ -23,6 +23,7 @@ builder.Services.AddSingleton<IBookCopy, BookCopyRepo>();
 builder.Services.AddSingleton<ICustomer, CustomerRepo>();
 builder.Services.AddSingleton<IBorrowing, BorrowingRepo>();
 builder.Services.AddSingleton<IFine, FineRepo>();
+builder.Services.AddSingleton<IUser, UserRepo>();
 
 
 var app = builder.Build();
