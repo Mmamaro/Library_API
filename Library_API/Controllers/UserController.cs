@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Data;
 using System;
+using Library_API.Services;
 
 namespace Library_API.Controllers
 {
@@ -15,11 +16,13 @@ namespace Library_API.Controllers
     {
         private readonly IUser _repo;
         private readonly ILogger<UserController> _logger;
+        private readonly TwoFaService _twoFaService;
 
-        public UserController(IUser user, ILogger<UserController> logger)
+        public UserController(IUser user, ILogger<UserController> logger, TwoFaService twoFaService)
         {
             _logger = logger;
             _repo = user;
+            _twoFaService = twoFaService;
         }
 
         [HttpGet]
@@ -27,6 +30,7 @@ namespace Library_API.Controllers
         {
             try
             {
+
                 var users = _repo.GetUsers();
 
                 if (users == null)
@@ -127,54 +131,7 @@ namespace Library_API.Controllers
             }
         }
 
-        [HttpPost]
-        public ActionResult AddUser(AddUser request)
-        {
-            try
-            {
-                if (!ModelState.IsValid)
-                {
-                    return BadRequest(ModelState);
-                }
 
-                var userExists = _repo.UserExists(request.Email);
-
-                if (userExists != null)
-                {
-                    return BadRequest(new { Message = "User email already exists" });
-                }
-
-                var user = new User() 
-                { 
-                    FirstName = request.FirstName,
-                    LastName = request.LastName,
-                    Email = request.Email,
-                    Password = request.Password,
-                    Active = true,
-                    isFirstSignIn = true,
-                    isTwoFaVerified = false,
-                    ManualCode = "dfgr",
-                    Role = "user",
-                    QRCode = "dgfer",
-                    twoFaKey = "dwfb"
-                };
-
-                var isAdded = _repo.AddUser(user);
-
-                if (!isAdded)
-                {
-                    return BadRequest(new { Message = "Could not add user" });
-                }
-
-                return Ok(new { Message = "User registered successfully" });
-
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError("Error in the User Controller while trying to register user: {ex}", ex.Message);
-                return BadRequest();
-            }
-        }
 
         [HttpPut("{id}")]
         public ActionResult UpdateUser(int id, UpdateUser request)
@@ -191,6 +148,27 @@ namespace Library_API.Controllers
                 if (user != null)
                 {
                     return BadRequest(new { Message = "User email already exists" });
+                }
+
+                if (!string.IsNullOrWhiteSpace(request.Email))
+                {
+                    var twoFaFields = _twoFaService.TwoFASetup(request.Email);
+
+                    var twoFaResetModel = new TwoFAResetModel()
+                    {
+                       isFirstSignIn = true,
+                       isTwoFAVerified = false,
+                       ManualEntryCode = twoFaFields.ManualEntryCode,
+                       QrCodeUrl = twoFaFields.QrCodeUrl,
+                       twoFAKey = twoFaFields.TwoFAKey,
+                    };
+
+                    var isTwoFAReset = _repo.TwoFAReset(id, twoFaResetModel);
+
+                    if (!isTwoFAReset)
+                    {
+                        return BadRequest(new { Message = "Could not reset two fa fields" });
+                    }
                 }
 
                 var isUpdated = _repo.UpdateUser(id, request);

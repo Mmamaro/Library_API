@@ -1,4 +1,6 @@
-﻿namespace Library_API.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Library_API.Models
 {
     public class Fine
     {
@@ -10,9 +12,9 @@
 
     public class AddFine
     {
-        public int BorrowingId { get; set; }
-        public decimal Amount { get; set; }
-        public string FineStatus { get; set; }
+        [Required(ErrorMessage = "Missing BorrowingId")] public int BorrowingId { get; set; }
+        [Required(ErrorMessage = "Missing Amount")] public decimal Amount { get; set; }
+        [Required(ErrorMessage = "Missing FineStatus")] public string FineStatus { get; set; }
     }
 
     public class UpdateFine

@@ -20,10 +20,12 @@ namespace Library_API.Models
 
     public class AddUser
     {
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        [EmailAddress] public string Email { get; set; }
-        public string Password { get; set; }
+
+
+        [Required(ErrorMessage = "Missing FirstName")] public string FirstName { get; set; }
+        [Required(ErrorMessage = "Missing LastName")] public string LastName { get; set; }
+        [Required(ErrorMessage = "Missing Email")] [EmailAddress]public string Email { get; set; }
+        [Required(ErrorMessage = "Missing Password")] public string Password { get; set; }
     }
 
     public class UpdateUser
@@ -31,6 +33,12 @@ namespace Library_API.Models
         public string? FirstName { get; set; }
         public string? LastName { get; set; }
         public string? Email { get; set; }
+    }
+
+    public class LoginModel
+    {
+        [Required(ErrorMessage = "Missing Email")] [EmailAddress] public string Email { get; set; }
+        [Required(ErrorMessage = "Missing Password")] public string Password { get; set; }
     }
 
 }

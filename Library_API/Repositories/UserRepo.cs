@@ -3,6 +3,7 @@ using BCrypt.Net;
 using Dapper;
 using Library_API.Data;
 using Library_API.Models;
+using System.Data;
 
 namespace Library_API.Repositories
 {
@@ -11,10 +12,11 @@ namespace Library_API.Repositories
         public List<User> GetUsers();
         public User GetUserById(int id);
         public User UserExists(string email);
-        public bool AddUser(User request);
         public bool UpdateUserRole(int id, string role);
         public bool UpdateUser(int id, UpdateUser request);
         public bool DeleteUser(int id);
+        public bool DisableUser(int id);
+        public bool TwoFAReset(int id, TwoFAResetModel twoFAResetModel);
 
     }
     public class UserRepo : IUser
@@ -27,39 +29,6 @@ namespace Library_API.Repositories
             _context = context;
             _logger = logger;
         }
-
-        public bool AddUser(User request)
-        {
-            try
-            {
-                var parameters = new DynamicParameters();
-                parameters.Add("@FirstNameParam", request.FirstName);
-                parameters.Add("@LastNameParam", request.LastName);
-                parameters.Add("@EmailParam", request.Email.ToLower());
-                parameters.Add("@PasswordParam", BCrypt.Net.BCrypt.HashPassword(request.Password));
-                parameters.Add("@RoleParam", request.Role);
-                parameters.Add("@isFirstSigninParam", request.isFirstSignIn);
-                parameters.Add("@isTwoFaVerifiedParam", request.isTwoFaVerified);
-                parameters.Add("@twoFaKeyParam", request.twoFaKey);
-                parameters.Add("@QRCodeParam", request.QRCode);
-                parameters.Add("@ManualCodeParam", request.ManualCode);
-                parameters.Add("@ActiveParam", request.Active);
-
-                string sql = @"INSERT INTO [dbo].[Users](FirstName, LastName, Email, Password, Role, isFirstSignin, isTwoFaVerified,
-                                                        twoFaKey, QRCode, ManualCode, Active)
-                               VALUES(@FirstNameParam, @LastNameParam, @EmailParam, @PasswordParam, @RoleParam, @isFirstSigninParam,
-                                       @isTwoFaVerifiedParam, @twoFaKeyParam, @QRCodeParam, @ManualCodeParam, @ActiveParam)";
-
-                return _context.ExecuteSql(sql, parameters);
-
-
-            } catch (Exception ex)
-            {
-                _logger.LogError("Error in the User Repo while trying to add user: {ex}",ex.Message);
-                return false;
-            }
-        }
-
         public bool DeleteUser(int id)
         {
             try
@@ -74,6 +43,24 @@ namespace Library_API.Repositories
             catch (Exception ex)
             {
                 _logger.LogError("Error in the User Repo while trying to delete user: {ex}", ex.Message);
+                return false;
+            }
+        }
+
+        public bool DisableUser(int id)
+        {
+            try
+            {
+                var parameters = new DynamicParameters();
+                parameters.Add("@UserIdParam", id);
+
+                string sql = "UPDATE [dbo].[Users] SET Active = false WHERE UserId = @UserIdParam";
+
+                return _context.ExecuteSql(sql, parameters);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError("Error in the User Repo while trying to disable user: {ex}", ex.Message);
                 return false;
             }
         }
@@ -108,6 +95,32 @@ namespace Library_API.Repositories
             {
                 _logger.LogError("Error in the User Repo while trying to get all users: {ex}", ex.Message);
                 return null;
+            }
+        }
+
+        public bool TwoFAReset(int id, TwoFAResetModel twoFAResetModel)
+        {
+            try
+            {
+                var parameters = new DynamicParameters();
+                parameters.Add("isFirstSignIn", twoFAResetModel.isFirstSignIn);
+                parameters.Add("isTwoFAVerified", twoFAResetModel.isTwoFAVerified);
+                parameters.Add("twoFAKey", twoFAResetModel.twoFAKey);
+                parameters.Add("ManualCode", twoFAResetModel.ManualEntryCode);
+                parameters.Add("QRCode", twoFAResetModel.QrCodeUrl);
+                parameters.Add("Id", id);
+
+                var sql = $"UPDATE [dbo].[Users] SET isFirstSignIn = @isFirstSignIn, isTwoFAVerified = @isTwoFAVerified " +
+                    $",twoFAKey = @twoFAKey, ManualCode = @ManualCode, QRCode = @QRCode " +
+                    $"WHERE UserId = @Id";
+
+                return _context.ExecuteSql(sql, parameters);
+
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError("Error in the repo while tring to reset twoFA columns: {ex}", ex.Message);
+                return false;
             }
         }
 
