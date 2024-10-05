@@ -1,4 +1,6 @@
-﻿namespace Library_API.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Library_API.Models
 {
     public class BookCopy
     {
@@ -10,8 +12,8 @@
 
     public class AddBookCopy
     {
-        public int BookId { get; set; }
-        public string? BarCode { get; set; }
-        public string? Status { get; set; }
+        [Required(ErrorMessage = "Missing BookId")] public int BookId { get; set; }
+        [Required(ErrorMessage = "Missing BarCode")] public string BarCode { get; set; }
+        [Required(ErrorMessage = "Missing Status")] public string Status { get; set; }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Library_API.Data;
 using Library_API.Models;
 using Library_API.Repositories;
+using Library_API.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -12,11 +13,13 @@ namespace Library_API.Controllers
     {
         private readonly ICustomer _repo;
         private readonly ILogger<CustomerController> _logger;
+        private readonly EmailService _emailService;
 
-        public CustomerController(ICustomer repo, ILogger<CustomerController> logger)
+        public CustomerController(ICustomer repo, ILogger<CustomerController> logger, EmailService emailService)
         {
             _logger = logger;
             _repo = repo;
+            _emailService = emailService;
         }
 
         [HttpGet]
@@ -69,7 +72,7 @@ namespace Library_API.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddCustomer(AddCustomer request)
+        public async Task<ActionResult> AddCustomer(AddCustomer request)
         {
             try
             {
@@ -91,6 +94,11 @@ namespace Library_API.Controllers
                 {
                     return BadRequest(new {Message = "Could not add customer"});
                 }
+
+                string subject = "Informatio captured on library system";
+                string body = "Your information has beeen captured on the library system for future updates and due date reminders";
+
+                await _emailService.SendEmail(request.Email, subject, body);
 
                 return Ok(new { Message = "Customer added successfully" });
 

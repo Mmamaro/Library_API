@@ -1,4 +1,6 @@
-﻿namespace Library_API.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Library_API.Models
 {
     public class Book
     {
@@ -11,15 +13,15 @@
 
     public class AddBook
     {
-        public string Title { get; set; }
-        public string ISBN { get; set; }
-        public int GenreId { get; set; }
+        [Required(ErrorMessage = "Missing Title")] public string Title { get; set; }
+        [Required(ErrorMessage = "Missing ISBN")] public string ISBN { get; set; }
+        [Required(ErrorMessage = "Missing GenreId")] public int GenreId { get; set; }
     }
 
     public class UpdateBook
     {
         public string? Title { get; set; }
         public string? ISBN { get; set; }
-        public int GenreId { get; set; } = 0;
+        [Required(ErrorMessage = "Missing GenreId")] public int GenreId { get; set; } = 0;
     }
 }

@@ -7,6 +7,7 @@ namespace Library_API.Repositories
     public interface IBorrowing 
     { 
         public List<DetailedBorrowing> GetBorrowings();
+        public List<DetailedBorrowing> GetCurrentBorrowings();
         public bool BorrowingReturn(int id, ReturnBorrowing request);
         public bool AddBorrowing(AddBorrowing request);
         public DetailedBorrowing GetBorrowingById(int id);
@@ -200,6 +201,31 @@ namespace Library_API.Repositories
                                  ON B.CopyId = BC.CopyId
                                  LEFT JOIN [dbo].[Books] AS Book
                                  ON BC.BookId = Book.BookId";
+
+                return _context.QueryData<DetailedBorrowing>(sql);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError("Error in the Borrowing Repo while trying to get all borrowings: {ex}", ex.Message);
+                return null;
+            }
+        }
+
+        public List<DetailedBorrowing> GetCurrentBorrowings()
+        {
+            try
+            {
+
+                string sql = @"SELECT B.BorrowingId, C.CustomerId, C.Email, Book.Title, BC.CopyId, 
+                               BC.BarCode, B.BorrowDate, B.DueDate, B.ReturnDate, B.Status 
+                               FROM [dbo].[Borrowings] AS B
+                                 LEFT JOIN [dbo].[Customers] AS C
+                                 ON B.CustomerId = C.CustomerId
+                                 LEFT JOIN [dbo].[BookCopies] AS BC
+                                 ON B.CopyId = BC.CopyId
+                                 LEFT JOIN [dbo].[Books] AS Book
+                                 ON BC.BookId = Book.BookId
+                                 WHERE B.Status = 'Borrowed' ";
 
                 return _context.QueryData<DetailedBorrowing>(sql);
             }

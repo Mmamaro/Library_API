@@ -1,4 +1,6 @@
-﻿namespace Library_API.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Library_API.Models
 {
     public class Genre
     {
@@ -8,6 +10,6 @@
 
     public class AddGenre
     {
-        public string GenreName { get; set; }
+        [Required(ErrorMessage = "Missing GenreName")] public string GenreName { get; set; }
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace Library_API.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Library_API.Models
 {
     public class Borrowing
     {
@@ -13,9 +15,9 @@
 
     public class AddBorrowing
     {
-        public int CustomerId { get; set; }
-        public int CopyId { get; set; }
-        public DateTime DueDate { get; set; }
+        [Required(ErrorMessage = "Missing CustomerId")] public int CustomerId { get; set; }
+        [Required(ErrorMessage = "Missing CopyId")] public int CopyId { get; set; }
+        [Required(ErrorMessage = "Missing DueDate")] public DateTime DueDate { get; set; }
     }
 
     public class UpdateBorrowing

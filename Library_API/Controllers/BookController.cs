@@ -25,10 +25,6 @@ namespace Library_API.Controllers
         {
             try
             {
-                if(!ModelState.IsValid)
-                {
-                    return BadRequest(ModelState);
-                }
 
                 var book = _repo.GetBookByIsbn(request.ISBN);
 
